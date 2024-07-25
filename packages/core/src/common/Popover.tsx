@@ -85,7 +85,9 @@ export class Popover extends BaseComponent<PopoverProps> {
     // only hide the popover if the click happened outside the popover
     const target = getEventTargetViaRoot(ev) as HTMLElement
     if (!this.rootEl.contains(target)) {
-      this.handleCloseClick()
+      if (!this.rootEl.classList.contains('fc-popover')) {
+        this.handleCloseClick();
+      }
     }
   }
 
